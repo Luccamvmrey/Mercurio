@@ -88,4 +88,7 @@ dependencies {
 
     // Auth
     implementation("com.google.firebase:firebase-auth-ktx")
+
+    // Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx")
 }
