@@ -70,6 +70,7 @@ fun TextFieldMercurio(
                 keyboardType = keyboardType,
                 imeAction = imeAction
             ),
+            singleLine = true,
             keyboardActions = keyboardActions,
             isError = isError
         )

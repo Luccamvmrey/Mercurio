@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import com.example.mercurio.presentation.views.signin.login.components.Content
 import com.example.mercurio.presentation.views.signin.login.components.Login
 import com.example.mercurio.presentation.views.signin.login.components.SigninSignupSwitcher
+import com.example.mercurio.presentation.views.signin.login.components.Signup
 import com.example.mercurio.presentation.views.signin.login.components.Switcher
 
 @Composable
@@ -42,7 +43,10 @@ fun LoginScreen(
                 )
             }
             Switcher.Signup -> {
-
+                Signup(
+                    state = state,
+                    viewModel = viewModel
+                )
             }
         }
     }

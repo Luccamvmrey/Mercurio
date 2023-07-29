@@ -48,12 +48,12 @@ fun SigninSignupSwitcher(
             .fillMaxWidth()
             .background(
                 DeepBlue,
-                RoundedCornerShape(6.dp)
+                RoundedCornerShape(4.dp)
             )
             .border(
                 1.dp,
                 Beige,
-                RoundedCornerShape(6.dp)
+                RoundedCornerShape(4.dp)
             )
     ) {
         SwitcherItem(

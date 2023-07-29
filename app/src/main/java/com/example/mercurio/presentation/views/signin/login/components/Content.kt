@@ -46,7 +46,7 @@ fun Content(
     if (!state.isLogged) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             modifier = Modifier
                 .fillMaxSize()
                 .background(DeepBlue)
@@ -56,7 +56,7 @@ fun Content(
                 ) {
                     focusManager.clearFocus()
                 }
-                .padding(64.dp)
+                .padding(horizontal = 64.dp, vertical = 154.dp)
         ) {
             content()
         }
