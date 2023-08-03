@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.mercurio.core.StringConstants.EMAIL
 import com.example.mercurio.core.StringConstants.ENTER
 import com.example.mercurio.core.StringConstants.FORGOT_PASSWORD
@@ -21,20 +20,19 @@ import com.example.mercurio.presentation.views.components.ButtonMercurio
 import com.example.mercurio.presentation.views.components.PasswordTextFieldMercurio
 import com.example.mercurio.presentation.views.components.TextFieldMercurio
 import com.example.mercurio.presentation.views.signin.login.LoginState
-import com.example.mercurio.presentation.views.signin.login.LoginViewModel
 
 @Composable
 fun Login(
     state: LoginState,
-    viewModel: LoginViewModel,
-    navController: NavController
+    onRecoverPassword: () -> Unit,
+    onLogin: () -> Unit,
 ) {
     TextFieldMercurio(
         value = state.email,
         onValueChange = { state.email = it },
         labelText = EMAIL,
-        isError = state.isEmailError,
-        error = state.emailError,
+        isError = state.emailError.isError,
+        error = state.emailError.message,
         isThereNext = true,
         keyboardType = KeyboardType.Email
     )
@@ -43,8 +41,8 @@ fun Login(
     PasswordTextFieldMercurio(
         value = state.password,
         onValueChange = { state.password = it },
-        isError = state.isPasswordError,
-        error = state.passwordError,
+        isError = state.passwordError.isError,
+        error = state.passwordError.message,
     )
 
     Spacer(modifier = Modifier.height(4.dp))
@@ -57,7 +55,7 @@ fun Login(
             style = MaterialTheme.typography.bodySmall,
             color = Beige,
             modifier = Modifier.clickable {
-                TODO("Password recovery")
+                onRecoverPassword()
             }
         )
     }
@@ -71,7 +69,7 @@ fun Login(
             text = ENTER,
             modifier = Modifier.fillMaxWidth(0.5f),
             onClick = {
-                TODO("Add functionality")
+                onLogin()
             }
         )
     }

@@ -16,19 +16,18 @@ import com.example.mercurio.presentation.views.components.ButtonMercurio
 import com.example.mercurio.presentation.views.components.PasswordTextFieldMercurio
 import com.example.mercurio.presentation.views.components.TextFieldMercurio
 import com.example.mercurio.presentation.views.signin.login.LoginState
-import com.example.mercurio.presentation.views.signin.login.LoginViewModel
 
 @Composable
 fun Signup(
     state: LoginState,
-    viewModel: LoginViewModel
+    onSignup: () -> Unit
 ) {
     TextFieldMercurio(
         value = state.name,
         onValueChange = { state.name = it },
         labelText = NAME,
-        isError = state.isNameError,
-        error = state.nameError,
+        isError = state.nameError.isError,
+        error = state.nameError.message,
         isThereNext = true,
         keyboardType = KeyboardType.Text
     )
@@ -38,8 +37,8 @@ fun Signup(
         value = state.email,
         onValueChange = { state.email = it },
         labelText = EMAIL,
-        isError = state.isEmailError,
-        error = state.emailError,
+        isError = state.emailError.isError,
+        error = state.emailError.message,
         isThereNext = true,
         keyboardType = KeyboardType.Email
     )
@@ -48,8 +47,8 @@ fun Signup(
     PasswordTextFieldMercurio(
         value = state.password,
         onValueChange = { state.password = it },
-        isError = state.isPasswordError,
-        error = state.passwordError,
+        isError = state.passwordError.isError,
+        error = state.passwordError.message,
     )
 
     Spacer(modifier = Modifier.height(48.dp))
@@ -61,7 +60,7 @@ fun Signup(
             text = SIGN_UP,
             modifier = Modifier.fillMaxWidth(0.5f),
             onClick = {
-                TODO("Add functionality")
+                onSignup()
             }
         )
     }

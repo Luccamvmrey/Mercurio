@@ -7,6 +7,7 @@ import com.example.mercurio.core.StringConstants.NO_VALUE
 import com.example.mercurio.domain.models.Response
 import com.example.mercurio.domain.models.Response.Loading
 import com.example.mercurio.domain.models.user.User
+import com.example.mercurio.presentation.views.components.Error
 import com.example.mercurio.presentation.views.signin.login.components.Switcher
 
 class LoginState {
@@ -18,14 +19,11 @@ class LoginState {
     // Booleans
     var isLogged by mutableStateOf(false)
     var isHandlingResponse by mutableStateOf(false)
-    var isNameError by mutableStateOf(false)
-    var isEmailError by mutableStateOf(false)
-    var isPasswordError by mutableStateOf(false)
 
     // Errors
-    var nameError by mutableStateOf(NO_VALUE)
-    var emailError by mutableStateOf(NO_VALUE)
-    var passwordError by mutableStateOf(NO_VALUE)
+    var nameError by mutableStateOf(Error())
+    var emailError by mutableStateOf(Error())
+    var passwordError by mutableStateOf(Error())
 
     // Responses
     var logUserResponse by mutableStateOf<Response<Boolean>>(Loading)

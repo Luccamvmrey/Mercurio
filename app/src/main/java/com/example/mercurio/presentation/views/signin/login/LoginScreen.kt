@@ -38,14 +38,20 @@ fun LoginScreen(
             Switcher.Signin -> {
                 Login(
                     state = state,
-                    viewModel = viewModel,
-                    navController = navController
+                    onRecoverPassword = {
+                        TODO("Password recovery")
+                    },
+                    onLogin = {
+                        TODO("Add login functionality")
+                    }
                 )
             }
             Switcher.Signup -> {
                 Signup(
                     state = state,
-                    viewModel = viewModel
+                    onSignup = {
+                        TODO("Add functionality")
+                    }
                 )
             }
         }
