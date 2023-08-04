@@ -11,6 +11,9 @@ object StringConstants {
     const val PASSWORD = "Senha"
     const val FORGOT_PASSWORD = "Esqueceu sua senha?"
     const val ENTER = "Entrar"
+    const val SEND_RECOVERY_EMAIL = "Enviaremos um e-mail de redefinição de senha para o e-mail" +
+            " indicado."
+    const val SEND = "Enviar"
 
     // Errors
     // User
