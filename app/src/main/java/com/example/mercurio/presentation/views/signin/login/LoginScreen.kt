@@ -8,6 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.mercurio.core.delayNavigation
+import com.example.mercurio.presentation.navigation.Screen
 import com.example.mercurio.presentation.views.signin.login.components.Content
 import com.example.mercurio.presentation.views.signin.login.components.Login
 import com.example.mercurio.presentation.views.signin.login.components.SigninSignupSwitcher
@@ -39,7 +41,11 @@ fun LoginScreen(
                 Login(
                     state = state,
                     onRecoverPassword = {
-                        TODO("Password recovery")
+                        delayNavigation {
+                            navController.navigate(
+                                Screen.RecoverPasswordScreen.route
+                            )
+                        }
                     },
                     onLogin = {
                         TODO("Add login functionality")

@@ -42,7 +42,7 @@ fun RecoverPasswordScreen(
     
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
             .background(DeepBlue)
@@ -52,7 +52,7 @@ fun RecoverPasswordScreen(
             ) {
                 focusManager.clearFocus()
             }
-            .padding(horizontal = 64.dp, vertical = 154.dp)
+            .padding(64.dp)
     ) {
         Text(
             text = SEND_RECOVERY_EMAIL,
