@@ -15,33 +15,34 @@ import androidx.compose.ui.unit.dp
 import com.example.mercurio.core.StringConstants.EMAIL
 import com.example.mercurio.core.StringConstants.ENTER
 import com.example.mercurio.core.StringConstants.FORGOT_PASSWORD
+import com.example.mercurio.domain.models.VariableState
 import com.example.mercurio.presentation.views.components.ButtonMercurio
 import com.example.mercurio.presentation.views.components.PasswordTextFieldMercurio
 import com.example.mercurio.presentation.views.components.TextFieldMercurio
-import com.example.mercurio.presentation.views.signin.login.LoginState
 
 @Composable
 fun Login(
-    state: LoginState,
+    emailState: VariableState<String>,
+    passwordState: VariableState<String>,
     onRecoverPassword: () -> Unit,
     onLogin: () -> Unit,
 ) {
     TextFieldMercurio(
-        value = state.email,
-        onValueChange = { state.email = it },
+        value = emailState.value,
+        onValueChange = { emailState.onChange(it) },
         labelText = EMAIL,
-        isError = state.emailError.isError,
-        error = state.emailError.message,
+        isError = emailState.error.isError,
+        error = emailState.error.message,
         isThereNext = true,
         keyboardType = KeyboardType.Email
     )
 
     Spacer(modifier = Modifier.height(48.dp))
     PasswordTextFieldMercurio(
-        value = state.password,
-        onValueChange = { state.password = it },
-        isError = state.passwordError.isError,
-        error = state.passwordError.message,
+        value = passwordState.value,
+        onValueChange = { emailState.onChange(it) },
+        isError = passwordState.error.isError,
+        error = passwordState.error.message,
     )
 
     Spacer(modifier = Modifier.height(4.dp))

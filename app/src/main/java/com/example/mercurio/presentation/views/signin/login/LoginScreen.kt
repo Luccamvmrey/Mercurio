@@ -54,7 +54,8 @@ fun LoginScreen(
         when (state.switcher) {
             Switcher.Signin -> {
                 Login(
-                    state = state,
+                    emailState = state.emailState,
+                    passwordState = state.passwordState,
                     onRecoverPassword = {
                         delayNavigation {
                             navController.navigate(
@@ -69,7 +70,9 @@ fun LoginScreen(
             }
             Switcher.Signup -> {
                 Signup(
-                    state = state,
+                    nameState = state.nameState,
+                    emailState = state.emailState,
+                    passwordState = state.passwordState,
                     onSignup = {
                         TODO("Add functionality")
                     }

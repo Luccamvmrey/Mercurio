@@ -8,21 +8,33 @@ import com.example.mercurio.domain.models.Response
 import com.example.mercurio.domain.models.Response.Loading
 import com.example.mercurio.domain.models.user.User
 import com.example.mercurio.domain.models.Error
+import com.example.mercurio.domain.models.VariableState
 import com.example.mercurio.presentation.views.signin.login.components.Switcher
+
 
 class LoginState {
     // Variables
-    var name by mutableStateOf(NO_VALUE)
-    var email by mutableStateOf(NO_VALUE)
-    var password by mutableStateOf(NO_VALUE)
+    var nameState by mutableStateOf(
+        VariableState(
+        value = NO_VALUE,
+        error = Error()
+        )
+    )
+    var emailState by mutableStateOf(
+        VariableState(
+            value = NO_VALUE,
+            error = Error()
+        )
+    )
+    var passwordState by mutableStateOf(
+        VariableState(
+            value = NO_VALUE,
+            error = Error()
+        )
+    )
 
     // Booleans
     var isHandlingResponse by mutableStateOf(false)
-
-    // Errors
-    var nameError by mutableStateOf(Error())
-    var emailError by mutableStateOf(Error())
-    var passwordError by mutableStateOf(Error())
 
     // Responses
     var logUserResponse by mutableStateOf<Response<Boolean>>(Loading)

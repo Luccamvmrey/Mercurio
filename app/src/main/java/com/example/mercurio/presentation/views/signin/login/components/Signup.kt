@@ -12,43 +12,45 @@ import androidx.compose.ui.unit.dp
 import com.example.mercurio.core.StringConstants.EMAIL
 import com.example.mercurio.core.StringConstants.NAME
 import com.example.mercurio.core.StringConstants.SIGN_UP
+import com.example.mercurio.domain.models.VariableState
 import com.example.mercurio.presentation.views.components.ButtonMercurio
 import com.example.mercurio.presentation.views.components.PasswordTextFieldMercurio
 import com.example.mercurio.presentation.views.components.TextFieldMercurio
-import com.example.mercurio.presentation.views.signin.login.LoginState
 
 @Composable
 fun Signup(
-    state: LoginState,
+    nameState: VariableState<String>,
+    emailState: VariableState<String>,
+    passwordState: VariableState<String>,
     onSignup: () -> Unit
 ) {
     TextFieldMercurio(
-        value = state.name,
-        onValueChange = { state.name = it },
+        value = nameState.value,
+        onValueChange = { nameState.onChange(it) },
         labelText = NAME,
-        isError = state.nameError.isError,
-        error = state.nameError.message,
+        isError = nameState.error.isError,
+        error = nameState.error.message,
         isThereNext = true,
         keyboardType = KeyboardType.Text
     )
 
     Spacer(modifier = Modifier.height(48.dp))
     TextFieldMercurio(
-        value = state.email,
-        onValueChange = { state.email = it },
+        value = emailState.value,
+        onValueChange = { emailState.onChange(it) },
         labelText = EMAIL,
-        isError = state.emailError.isError,
-        error = state.emailError.message,
+        isError = emailState.error.isError,
+        error = emailState.error.message,
         isThereNext = true,
         keyboardType = KeyboardType.Email
     )
 
     Spacer(modifier = Modifier.height(48.dp))
     PasswordTextFieldMercurio(
-        value = state.password,
-        onValueChange = { state.password = it },
-        isError = state.passwordError.isError,
-        error = state.passwordError.message,
+        value = passwordState.value,
+        onValueChange = { passwordState.onChange(it) },
+        isError = passwordState.error.isError,
+        error = passwordState.error.message,
     )
 
     Spacer(modifier = Modifier.height(48.dp))
