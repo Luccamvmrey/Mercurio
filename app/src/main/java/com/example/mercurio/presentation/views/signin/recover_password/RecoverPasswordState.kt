@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.example.mercurio.core.StringConstants.NO_VALUE
 import com.example.mercurio.domain.models.Response
-import com.example.mercurio.presentation.views.components.Error
+import com.example.mercurio.domain.models.Error
 
 class RecoverPasswordState {
     // Variables

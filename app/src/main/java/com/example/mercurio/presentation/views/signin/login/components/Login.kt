@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import com.example.mercurio.core.StringConstants.EMAIL
 import com.example.mercurio.core.StringConstants.ENTER
 import com.example.mercurio.core.StringConstants.FORGOT_PASSWORD
-import com.example.mercurio.presentation.ui.theme.Beige
 import com.example.mercurio.presentation.views.components.ButtonMercurio
 import com.example.mercurio.presentation.views.components.PasswordTextFieldMercurio
 import com.example.mercurio.presentation.views.components.TextFieldMercurio
@@ -53,7 +52,6 @@ fun Login(
         Text(
             text = FORGOT_PASSWORD,
             style = MaterialTheme.typography.bodySmall,
-            color = Beige,
             modifier = Modifier.clickable {
                 onRecoverPassword()
             }

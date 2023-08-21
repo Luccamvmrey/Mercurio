@@ -1,4 +1,4 @@
-package com.example.mercurio.presentation.views.components
+package com.example.mercurio.domain.models
 
 class Error(
     val isError: Boolean = false,

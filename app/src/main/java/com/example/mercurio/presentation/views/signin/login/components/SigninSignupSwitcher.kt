@@ -2,10 +2,12 @@ package com.example.mercurio.presentation.views.signin.login.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,8 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.mercurio.core.StringConstants.LOGIN
 import com.example.mercurio.core.StringConstants.SIGN_UP
-import com.example.mercurio.presentation.ui.theme.Beige
-import com.example.mercurio.presentation.ui.theme.DeepBlue
 
 @Composable
 fun SigninSignupSwitcher(
@@ -30,14 +30,16 @@ fun SigninSignupSwitcher(
     colors = when (switcher) {
         Switcher.Signin -> {
             SwitcherColors(
-                signinBackgroundColor = Beige,
-                signinContentColor = DeepBlue,
+                darkTheme = isSystemInDarkTheme(),
+                signinBackgroundColor = MaterialTheme.colorScheme.primary,
+                signinContentColor = MaterialTheme.colorScheme.onPrimary
             )
         }
         Switcher.Signup -> {
             SwitcherColors(
-                signupBackgroundColor = Beige,
-                signupContentColor = DeepBlue
+                darkTheme = isSystemInDarkTheme(),
+                signupBackgroundColor = MaterialTheme.colorScheme.primary,
+                signupContentColor = MaterialTheme.colorScheme.onPrimary
             )
         }
     }
@@ -47,12 +49,12 @@ fun SigninSignupSwitcher(
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                DeepBlue,
+                MaterialTheme.colorScheme.onPrimary,
                 RoundedCornerShape(4.dp)
             )
             .border(
                 1.dp,
-                Beige,
+                MaterialTheme.colorScheme.outline,
                 RoundedCornerShape(4.dp)
             )
     ) {

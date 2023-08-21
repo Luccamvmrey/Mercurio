@@ -12,7 +12,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -24,7 +23,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import com.example.mercurio.core.StringConstants.PASSWORD
-import com.example.mercurio.presentation.ui.theme.Beige
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,16 +48,6 @@ fun PasswordTextFieldMercurio(
         onGo = { focusManager.clearFocus() }
     )
 
-    val colors = TextFieldDefaults.outlinedTextFieldColors(
-        unfocusedBorderColor = Beige,
-        unfocusedLabelColor = Beige,
-        focusedBorderColor = Beige,
-        focusedLabelColor = Beige,
-        errorLabelColor = MaterialTheme.colorScheme.error,
-        textColor = Beige,
-        cursorColor = Beige
-    )
-
     Column {
         OutlinedTextField(
             value = value,
@@ -68,11 +56,9 @@ fun PasswordTextFieldMercurio(
             label = {
                 Text(
                     text = PASSWORD,
-                    color = if (!isError) Beige else MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.bodyMedium
                 )
             },
-            colors = colors,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Go
@@ -88,7 +74,6 @@ fun PasswordTextFieldMercurio(
                     Icon(
                         imageVector = icon,
                         contentDescription = "Visibility icon",
-                        tint = Beige
                     )
                 }
             },
